@@ -68,9 +68,21 @@
   "hotPaths": [
     {
       "path": "",
-      "accessCount": 24,
-      "lastAccessed": 1774523775892,
+      "accessCount": 28,
+      "lastAccessed": 1774530199212,
       "type": "directory"
+    },
+    {
+      "path": "popup.js",
+      "accessCount": 7,
+      "lastAccessed": 1774530345556,
+      "type": "file"
+    },
+    {
+      "path": "background.js",
+      "accessCount": 6,
+      "lastAccessed": 1774530855939,
+      "type": "file"
     },
     {
       "path": "modules/template-manager.js",
@@ -115,21 +127,15 @@
       "type": "file"
     },
     {
+      "path": "popup.html",
+      "accessCount": 4,
+      "lastAccessed": 1774530345157,
+      "type": "file"
+    },
+    {
       "path": "modules/scanner-enhanced.js",
       "accessCount": 3,
       "lastAccessed": 1774523269634,
-      "type": "file"
-    },
-    {
-      "path": "background.js",
-      "accessCount": 3,
-      "lastAccessed": 1774523361428,
-      "type": "file"
-    },
-    {
-      "path": "popup.js",
-      "accessCount": 3,
-      "lastAccessed": 1774523362828,
       "type": "file"
     },
     {
@@ -145,22 +151,22 @@
       "type": "file"
     },
     {
+      "path": "CLAUDE.md",
+      "accessCount": 2,
+      "lastAccessed": 1774530681698,
+      "type": "file"
+    },
+    {
+      "path": "popup.css",
+      "accessCount": 2,
+      "lastAccessed": 1774530855832,
+      "type": "file"
+    },
+    {
       "path": "modules",
       "accessCount": 1,
       "lastAccessed": 1774523215682,
       "type": "directory"
-    },
-    {
-      "path": "popup.html",
-      "accessCount": 1,
-      "lastAccessed": 1774523286941,
-      "type": "file"
-    },
-    {
-      "path": "CLAUDE.md",
-      "accessCount": 1,
-      "lastAccessed": 1774523537454,
-      "type": "file"
     }
   ],
   "userDirectives": []

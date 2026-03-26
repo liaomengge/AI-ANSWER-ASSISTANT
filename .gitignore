@@ -21,3 +21,8 @@ build/
 # Temporary files
 *.tmp
 *.temp
+
+.omc
+.claude
+CLAUDE.md
+
