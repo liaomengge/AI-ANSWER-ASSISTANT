@@ -1,0 +1,6 @@
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"superpowers:brainstorming"}
+{"t":0,"agent":"a6c703c","agent_type":"everything-claude-code:typescript-reviewer","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a6c703c","agent_type":"everything-claude-code:typescript-reviewer","event":"agent_stop","success":true,"duration_ms":73920}
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"init"}
+{"t":0,"agent":"a45f2d8","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a45f2d8","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":57601}

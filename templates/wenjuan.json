@@ -1,0 +1,67 @@
+{
+    "siteId": "wenjuan_builtin",
+    "siteName": "问卷网",
+    "urlPatterns":
+    [
+        "https://www.wenjuan.group/s/*",
+        "https://www.wenjuan.com/s/*",
+        "https://wenjuan.group/s/*",
+        "https://wenjuan.com/s/*"
+    ],
+    "urlRegex": "^https?://(?:www\\.)?wenjuan\\.(?:group|com)/s/",
+    "version": "1.0.0",
+    "createdAt": "2026-03-16",
+    "lastUpdated": "2026-03-16",
+    "description": "问卷网在线考试/问卷调查系统",
+    "selectors":
+    {
+        "questionContainer": ".field.ui-field-contain[topic]",
+        "questionTypes":
+        {
+            "detectByAttribute": "type",
+            "single":
+            {
+                "typeValue": "3",
+                "container": ".field.ui-field-contain[type='3']",
+                "title": ".topichtml",
+                "optionsContainer": ".ui-controlgroup",
+                "optionItem": ".ui-radio",
+                "optionInput": "input[type='radio']",
+                "optionLabel": ".label",
+                "optionLabelPattern": "^([A-Z])[\\.\\.、\\s]",
+                "clickTarget": "input[type='radio']"
+            },
+            "multiple":
+            {
+                "typeValue": "4",
+                "container": ".field.ui-field-contain[type='4']",
+                "title": ".topichtml",
+                "optionsContainer": ".ui-controlgroup",
+                "optionItem": ".ui-checkbox",
+                "optionInput": "input[type='checkbox']",
+                "optionLabel": ".label",
+                "optionLabelPattern": "^([A-Z])[\\.\\.、\\s]",
+                "clickTarget": "input[type='checkbox']"
+            },
+            "fill":
+            {
+                "typeValue": "2",
+                "container": ".field.ui-field-contain[type='2']",
+                "title": ".topichtml",
+                "inputsContainer": ".beginner_problem",
+                "inputs": "textarea, input[type='text']"
+            }
+        },
+        "questionIndex": "topic",
+        "requiredMark": ".req"
+    },
+    "features":
+    {
+        "hasQuestionIndex": true,
+        "hasTypeAttribute": true,
+        "inputsHidden": true,
+        "needClickWrapper": false,
+        "autoScrollSupport": true
+    },
+    "notes": "问卷网模板暂时沿用问卷星题型结构作为内置基线，若目标页面DOM不同需按真实页面选择器调整。"
+}

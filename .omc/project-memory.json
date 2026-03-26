@@ -1,0 +1,167 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774521297571,
+  "projectRoot": "/Users/liaomengge/Documents/github-liaomengge/AI-ANSWER-ASSISTANT",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "icons": {
+      "path": "icons",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1774521297534,
+      "keyFiles": [
+        "hero-image.jpg",
+        "icon128.png",
+        "icon128.svg"
+      ]
+    },
+    "modules": {
+      "path": "modules",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1774521297535,
+      "keyFiles": [
+        "scanner-enhanced.js",
+        "site-matcher.js",
+        "template-manager.js"
+      ]
+    },
+    "templates": {
+      "path": "templates",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1774521297537,
+      "keyFiles": [
+        "tencent.json",
+        "wjx.json"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 24,
+      "lastAccessed": 1774523775892,
+      "type": "directory"
+    },
+    {
+      "path": "modules/template-manager.js",
+      "accessCount": 5,
+      "lastAccessed": 1774523756684,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 5,
+      "lastAccessed": 1774523757205,
+      "type": "file"
+    },
+    {
+      "path": "modules/site-matcher.js",
+      "accessCount": 4,
+      "lastAccessed": 1774523269703,
+      "type": "file"
+    },
+    {
+      "path": "manifest.json",
+      "accessCount": 4,
+      "lastAccessed": 1774523361544,
+      "type": "file"
+    },
+    {
+      "path": "templates/wenjuan.json",
+      "accessCount": 4,
+      "lastAccessed": 1774523756389,
+      "type": "file"
+    },
+    {
+      "path": "template-manager-ui.js",
+      "accessCount": 4,
+      "lastAccessed": 1774523757077,
+      "type": "file"
+    },
+    {
+      "path": "content.js",
+      "accessCount": 4,
+      "lastAccessed": 1774523775808,
+      "type": "file"
+    },
+    {
+      "path": "modules/scanner-enhanced.js",
+      "accessCount": 3,
+      "lastAccessed": 1774523269634,
+      "type": "file"
+    },
+    {
+      "path": "background.js",
+      "accessCount": 3,
+      "lastAccessed": 1774523361428,
+      "type": "file"
+    },
+    {
+      "path": "popup.js",
+      "accessCount": 3,
+      "lastAccessed": 1774523362828,
+      "type": "file"
+    },
+    {
+      "path": "templates/wjx.json",
+      "accessCount": 2,
+      "lastAccessed": 1774522573776,
+      "type": "file"
+    },
+    {
+      "path": "templates/tencent.json",
+      "accessCount": 2,
+      "lastAccessed": 1774522573877,
+      "type": "file"
+    },
+    {
+      "path": "modules",
+      "accessCount": 1,
+      "lastAccessed": 1774523215682,
+      "type": "directory"
+    },
+    {
+      "path": "popup.html",
+      "accessCount": 1,
+      "lastAccessed": 1774523286941,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1774523537454,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

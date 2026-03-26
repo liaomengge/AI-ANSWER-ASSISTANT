@@ -1,0 +1,26 @@
+{
+  "agents": [
+    {
+      "agent_id": "a6c703cf2cf43693d",
+      "agent_type": "everything-claude-code:typescript-reviewer",
+      "started_at": "2026-03-26T10:55:20.074Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-03-26T10:56:33.994Z",
+      "duration_ms": 73920
+    },
+    {
+      "agent_id": "a45f2d89719431411",
+      "agent_type": "Explore",
+      "started_at": "2026-03-26T11:15:32.183Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-03-26T11:16:29.784Z",
+      "duration_ms": 57601
+    }
+  ],
+  "total_spawned": 2,
+  "total_completed": 2,
+  "total_failed": 0,
+  "last_updated": "2026-03-26T11:16:29.887Z"
+}
