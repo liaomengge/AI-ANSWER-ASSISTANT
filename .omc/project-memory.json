@@ -67,15 +67,27 @@
   },
   "hotPaths": [
     {
+      "path": "popup.js",
+      "accessCount": 35,
+      "lastAccessed": 1774535853235,
+      "type": "file"
+    },
+    {
       "path": "",
       "accessCount": 28,
       "lastAccessed": 1774530199212,
       "type": "directory"
     },
     {
-      "path": "popup.js",
-      "accessCount": 7,
-      "lastAccessed": 1774530345556,
+      "path": "popup.html",
+      "accessCount": 13,
+      "lastAccessed": 1774535075568,
+      "type": "file"
+    },
+    {
+      "path": "popup.css",
+      "accessCount": 8,
+      "lastAccessed": 1774535080250,
       "type": "file"
     },
     {
@@ -127,12 +139,6 @@
       "type": "file"
     },
     {
-      "path": "popup.html",
-      "accessCount": 4,
-      "lastAccessed": 1774530345157,
-      "type": "file"
-    },
-    {
       "path": "modules/scanner-enhanced.js",
       "accessCount": 3,
       "lastAccessed": 1774523269634,
@@ -154,12 +160,6 @@
       "path": "CLAUDE.md",
       "accessCount": 2,
       "lastAccessed": 1774530681698,
-      "type": "file"
-    },
-    {
-      "path": "popup.css",
-      "accessCount": 2,
-      "lastAccessed": 1774530855832,
       "type": "file"
     },
     {

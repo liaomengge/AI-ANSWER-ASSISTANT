@@ -30,6 +30,15 @@ const editStatus = document.getElementById("editStatus");
 const saveModelBtn = document.getElementById("saveModelBtn");
 const toggleEditApiKeyBtn = document.getElementById("toggleEditApiKey");
 
+const refreshModelsBtn = document.getElementById("refreshModelsBtn");
+
+// Custom platform select elements
+const platformSelect = document.getElementById("platformSelect");
+const selectTrigger = platformSelect.querySelector(".select-trigger");
+const selectDropdown = platformSelect.querySelector(".select-dropdown");
+const selectedOption = platformSelect.querySelector(".selected-option");
+const selectOptions = platformSelect.querySelectorAll(".select-option");
+
 let editingModelId = null;
 
 const logContent = document.getElementById("logContent");
@@ -47,6 +56,21 @@ const BUILTIN_MODEL = {
   apiKey: "default",
   model: "Doubao-1.5-pro",
   builtin: true,
+};
+
+// Platform base URLs
+const PLATFORM_BASE_URLS = {
+  openai: "https://api.openai.com/v1",
+  gemini: "https://generativelanguage.googleapis.com/v1beta",
+  anthropic: "https://api.anthropic.com/v1",
+  "new-api": "https://api.new-api.com/v1",
+  openrouter: "https://openrouter.ai/api/v1",
+  deepseek: "https://api.deepseek.com/v1",
+  minimax: "https://api.minimax.chat/v1",
+  kimi: "https://api.moonshot.cn/v1",
+  zhipu: "https://open.bigmodel.cn/api/paas/v4",
+  alibaba: "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  doubao: "https://ark.cn-beijing.volces.com/api/v3",
 };
 
 // Initialize
@@ -95,10 +119,13 @@ function openEditModal(modelId = null) {
     loadModelForEdit(modelId);
   } else {
     editModalTitle.textContent = "添加模型";
-    editNameInput.value = "";
-    editBaseUrlInput.value = "https://api.openai.com/v1";
+    // Reset to default OpenAI
+    setPlatformValue("openai");
+    editBaseUrlInput.value = PLATFORM_BASE_URLS.openai;
     editApiKeyInput.value = "";
-    editModelInput.value = "";
+    editModelInput.innerHTML = '<option value="">请先配置 Base URL 和 API Key</option>';
+    editModelInput.disabled = true;
+    refreshModelsBtn.disabled = true;
   }
 }
 
@@ -274,15 +301,17 @@ async function loadModelForEdit(modelId) {
   const models = await getAllModels();
   const model = models.find((m) => m.id === modelId);
   if (model) {
-    editNameInput.value = model.name;
+    setPlatformValue(model.name || "openai");
     editBaseUrlInput.value = model.baseUrl;
     editApiKeyInput.value = model.apiKey;
-    editModelInput.value = model.model;
+    editModelInput.innerHTML = `<option value="${model.model}">${model.model}</option>`;
+    editModelInput.disabled = false;
+    refreshModelsBtn.disabled = false;
   }
 }
 
 saveModelBtn.addEventListener("click", async () => {
-  const name = editNameInput.value.trim();
+  const name = getPlatformValue();
   const baseUrl = editBaseUrlInput.value.trim();
   const apiKey = editApiKeyInput.value.trim();
   const model = editModelInput.value.trim();
@@ -329,6 +358,75 @@ saveModelBtn.addEventListener("click", async () => {
   }, 300);
 });
 
+// Fetch models from API
+async function fetchModels(baseUrl, apiKey) {
+  try {
+    const response = await fetch(`${baseUrl}/models`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.data || [];
+  } catch (error) {
+    console.error("Failed to fetch models:", error);
+    throw error;
+  }
+}
+
+// Refresh models button handler
+refreshModelsBtn.addEventListener("click", async () => {
+  const baseUrl = editBaseUrlInput.value.trim();
+  const apiKey = editApiKeyInput.value.trim();
+
+  if (!baseUrl || !apiKey) {
+    showEditStatus("error", "请先填写 Base URL 和 API Key");
+    return;
+  }
+
+  refreshModelsBtn.disabled = true;
+  refreshModelsBtn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="spinning"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>';
+  showEditStatus("info", "正在获取模型列表...");
+
+  try {
+    const models = await fetchModels(baseUrl, apiKey);
+
+    if (models.length === 0) {
+      editModelInput.innerHTML = '<option value="">未找到可用模型</option>';
+      showEditStatus("warning", "未找到可用模型");
+    } else {
+      editModelInput.innerHTML = models
+        .map(m => `<option value="${m.id}">${m.id}</option>`)
+        .join("");
+      editModelInput.disabled = false;
+      showEditStatus("success", `已加载 ${models.length} 个模型`);
+    }
+  } catch (error) {
+    editModelInput.innerHTML = '<option value="">获取失败，请手动输入</option>';
+    editModelInput.disabled = false;
+    showEditStatus("error", "获取模型列表失败，请检查配置");
+  } finally {
+    refreshModelsBtn.disabled = false;
+    refreshModelsBtn.innerHTML = '<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>';
+  }
+});
+
+// Enable refresh button when both baseUrl and apiKey are filled
+[editBaseUrlInput, editApiKeyInput].forEach(input => {
+  input.addEventListener("input", () => {
+    const hasBaseUrl = editBaseUrlInput.value.trim() !== "";
+    const hasApiKey = editApiKeyInput.value.trim() !== "";
+    refreshModelsBtn.disabled = !(hasBaseUrl && hasApiKey);
+  });
+});
+
 function showEditStatus(type, message) {
   editStatus.textContent = message;
   editStatus.className = `config-status ${type}`;
@@ -337,6 +435,43 @@ function showEditStatus(type, message) {
     editStatus.className = "config-status";
   }, 3000);
 }
+
+// Custom platform select functions
+function setPlatformValue(value) {
+  selectedOption.dataset.value = value;
+  const option = Array.from(selectOptions).find(opt => opt.dataset.value === value);
+  if (option) {
+    selectedOption.querySelector(".option-icon").textContent = option.querySelector(".option-icon").textContent;
+    selectedOption.querySelector(".option-label").textContent = option.querySelector(".option-label").textContent;
+  }
+}
+
+function getPlatformValue() {
+  return selectedOption.dataset.value;
+}
+
+// Platform select toggle
+selectTrigger.addEventListener("click", () => {
+  selectDropdown.classList.toggle("open");
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", (e) => {
+  if (!platformSelect.contains(e.target)) {
+    selectDropdown.classList.remove("open");
+  }
+});
+
+// Platform option click handlers
+selectOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    const value = option.dataset.value;
+    setPlatformValue(value);
+    selectDropdown.classList.remove("open");
+    // Trigger platform change
+    editBaseUrlInput.value = PLATFORM_BASE_URLS[value] || PLATFORM_BASE_URLS.openai;
+  });
+});
 
 // --- Action Logic ---
 
