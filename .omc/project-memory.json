@@ -74,8 +74,8 @@
     },
     {
       "path": "",
-      "accessCount": 28,
-      "lastAccessed": 1774530199212,
+      "accessCount": 35,
+      "lastAccessed": 1774543721711,
       "type": "directory"
     },
     {
@@ -91,15 +91,21 @@
       "type": "file"
     },
     {
-      "path": "background.js",
-      "accessCount": 6,
-      "lastAccessed": 1774530855939,
+      "path": "content.js",
+      "accessCount": 7,
+      "lastAccessed": 1774542460203,
       "type": "file"
     },
     {
       "path": "modules/template-manager.js",
-      "accessCount": 5,
-      "lastAccessed": 1774523756684,
+      "accessCount": 7,
+      "lastAccessed": 1774543721275,
+      "type": "file"
+    },
+    {
+      "path": "background.js",
+      "accessCount": 6,
+      "lastAccessed": 1774530855939,
       "type": "file"
     },
     {
@@ -110,20 +116,20 @@
     },
     {
       "path": "modules/site-matcher.js",
-      "accessCount": 4,
-      "lastAccessed": 1774523269703,
-      "type": "file"
-    },
-    {
-      "path": "manifest.json",
-      "accessCount": 4,
-      "lastAccessed": 1774523361544,
+      "accessCount": 5,
+      "lastAccessed": 1774542444889,
       "type": "file"
     },
     {
       "path": "templates/wenjuan.json",
-      "accessCount": 4,
-      "lastAccessed": 1774523756389,
+      "accessCount": 5,
+      "lastAccessed": 1774543731209,
+      "type": "file"
+    },
+    {
+      "path": "manifest.json",
+      "accessCount": 5,
+      "lastAccessed": 1774543731583,
       "type": "file"
     },
     {
@@ -133,27 +139,21 @@
       "type": "file"
     },
     {
-      "path": "content.js",
-      "accessCount": 4,
-      "lastAccessed": 1774523775808,
-      "type": "file"
-    },
-    {
       "path": "modules/scanner-enhanced.js",
-      "accessCount": 3,
-      "lastAccessed": 1774523269634,
+      "accessCount": 4,
+      "lastAccessed": 1774542445288,
       "type": "file"
     },
     {
       "path": "templates/wjx.json",
-      "accessCount": 2,
-      "lastAccessed": 1774522573776,
+      "accessCount": 3,
+      "lastAccessed": 1774543731372,
       "type": "file"
     },
     {
       "path": "templates/tencent.json",
-      "accessCount": 2,
-      "lastAccessed": 1774522573877,
+      "accessCount": 3,
+      "lastAccessed": 1774543731431,
       "type": "file"
     },
     {

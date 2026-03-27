@@ -22,7 +22,7 @@ build/
 *.tmp
 *.temp
 
-.omc
-.claude
+.omc/
+.claude/
 CLAUDE.md
 
