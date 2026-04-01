@@ -1,0 +1,62 @@
+# 依赖 & 构建
+node_modules/
+vendor/
+dist/
+build/
+out/
+target/
+.next/
+.nuxt/
+.gradle/
+.mvn/
+
+# 锁文件（巨占token）
+package-lock.json
+y.lock
+yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
+Cargo.lock
+composer.lock
+Pipfile.lock
+poetry.lock
+
+# 编辑器/系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志/缓存/临时
+*.log
+tmp/
+temp/
+.cache/
+logs/
+coverage/
+
+# 图片/媒体/压缩包
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# 环境/密钥
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# 数据库
+*.db
+*.sqlite
+*.sql
+*.csv
